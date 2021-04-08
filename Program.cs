@@ -11,14 +11,21 @@ namespace CatWorx.BadgeMaker
             List<Employee> employees = new List<Employee>();
             while (true)
             {
-                Console.WriteLine("Please enter a name: (leave empty to exit): ");
-                string input = Console.ReadLine();
-                if (input == "")
+                Console.WriteLine("Enter employee's first name: (leave empty to exit): ");
+                string firstName = Console.ReadLine();
+                if (firstName == "")
                 {
                     break;
                 }
+                Console.WriteLine("Enter employee's last name: ");
+                string lastName = Console.ReadLine();
+                Console.WriteLine("Enter employee's ID: ");
+                int id = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Enter employee's photo url: ");
+                string photoUrl = Console.ReadLine();
+
                 //create a new Employee instance
-                Employee currentEmployee = new Employee(input, "Smith");
+                Employee currentEmployee = new Employee(firstName, lastName, id, photoUrl);
                 //adds the user input into the list, combining the first and last name as one as defined in Employee.cs
                 employees.Add(currentEmployee);
             }
@@ -30,7 +37,8 @@ namespace CatWorx.BadgeMaker
             for (int i = 0; i < employees.Count; i++)
             {
 
-                Console.WriteLine(employees[i].GetName());
+                string template = "{0,-10}\t{1,-20}\t{2}";
+                Console.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetName(), employees[i].GetPhotoUrl()));
 
             }
         }
