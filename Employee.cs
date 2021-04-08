@@ -9,9 +9,11 @@ namespace CatWorx.BadgeMaker
         public string PhotoUrl;
         
         //creates a constructor that takes the employees first and last name and sets it to input used in Program.cs
-        public Employee(string firstName, string lastName) {
+        public Employee(string firstName, string lastName, int id, string photoUrl) {
             FirstName = firstName;
             LastName = lastName;
+            Id = id;
+            PhotoUrl = photoUrl;
         }
         
         //combines the first and last name from the input into one
